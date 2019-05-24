@@ -1,5 +1,4 @@
 const swag = require('./../models/swag');
-const users = require('./../models/users');
 
 module.exports = {
     add: (req, res, next) => {
