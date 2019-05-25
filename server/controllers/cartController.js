@@ -18,17 +18,16 @@ module.exports = {
     },
     delete: (req, res, next) => {
         const { id } = req.params;
-    const { user } = req.session;
+        const { user } = req.session;
 
-    const index = user.cart.findIndex(swag => swag.id == id);
-    const selectedSwag = swag.find(swag => swag.id == id);
+        const index = user.cart.findIndex( e => e.id  == id);
+        const selectedSwag = swag.find( e => e.id == id);
 
-    if (index !== -1) {
-      user.cart.splice(index, 1);
-      user.total -= selectedSwag.price;
-    }
-
-    res.status(200).send(user);
+        if (index !== -1) {
+            user.cart.splice(index, 1);
+            user.total -= selectedSwag.price;
+        }
+        res.status(200).send(user)
     },
     checkout: (req, res, next) => {
         const { session } = req;
