@@ -6,6 +6,7 @@ const swagController = require('./controllers/swagController');
 const authController = require('./controllers/authController');
 const bodyParser = require('body-parser');
 const cartController = require('./controllers/cartController');
+const searchController = require('./controllers/searchController');
 
 const app = express();
 
@@ -32,6 +33,8 @@ app.get('/api/users', authController.getAllUsers);
 app.post('/api/cart/checkout', cartController.checkout);
 app.post('/api/cart/:id', cartController.add);
 app.delete('/api/cart/:id', cartController.delete);
+
+app.get('/api/search', searchController.search);
 
 app.listen(SERVER_PORT, () => {
     console.log(`Listening in on port ${ SERVER_PORT }`)
